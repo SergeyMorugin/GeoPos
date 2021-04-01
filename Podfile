@@ -7,6 +7,8 @@ target 'GeoPos' do
 
   # Pods for GeoPos
   pod "GoogleMaps"
+
+
   target 'GeoPosTests' do
     inherit! :search_paths
     # Pods for testing
