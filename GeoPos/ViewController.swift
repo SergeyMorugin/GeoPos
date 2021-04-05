@@ -27,6 +27,13 @@ class ViewController: UIViewController {
          configureLocationManager()
     }
     
+    func initRoutePath(){
+        route?.map = nil
+        route = GMSPolyline()
+        routePath = GMSMutablePath()
+        route?.map = mapView
+    }
+    
     func configureLocationManager() {
         locationManager = CLLocationManager()
         locationManager?.delegate = self
@@ -35,13 +42,6 @@ class ViewController: UIViewController {
         locationManager?.startMonitoringSignificantLocationChanges()
         locationManager?.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         locationManager?.requestAlwaysAuthorization()
-        
-        route?.map = nil
-        route = GMSPolyline()
-        routePath = GMSMutablePath()
-        route?.map = mapView
-        
-        locationManager?.startUpdatingLocation()
     }
     
     func goTo(coordinate: CLLocationCoordinate2D){
@@ -58,8 +58,18 @@ class ViewController: UIViewController {
         routePath?.add(coordinate)
         route?.path = routePath
     }
-
-
+    
+    
+    
+    @IBAction func startBtnClick(_ sender: Any) {
+        initRoutePath()
+        locationManager?.startUpdatingLocation()
+    }
+    
+    @IBAction func stopBtnClick(_ sender: Any) {
+        locationManager?.stopUpdatingLocation()
+    }
+    
 }
 
 extension ViewController: CLLocationManagerDelegate {

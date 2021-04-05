@@ -16,16 +16,44 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I8A-cr-OBi" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="729"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A3x-do-ym8">
+                                <rect key="frame" x="0.0" y="781" width="403" height="81"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5vJ-gO-azi">
+                                        <rect key="frame" x="36" y="25" width="34" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Start"/>
+                                        <connections>
+                                            <action selector="startBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Iym-UN-wOU"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4aA-Wn-bhw">
+                                        <rect key="frame" x="120" y="25" width="32" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Stop"/>
+                                        <connections>
+                                            <action selector="stopBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="u6O-6f-xUS"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="81" id="AKJ-jN-7rC"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="A3x-do-ym8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8Th-Fg-ROn"/>
                             <constraint firstItem="I8A-cr-OBi" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="9fc-ZZ-hah"/>
                             <constraint firstItem="I8A-cr-OBi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="M9a-Iu-Yh3"/>
+                            <constraint firstItem="A3x-do-ym8" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Ppt-UI-kMM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="A3x-do-ym8" secondAttribute="trailing" constant="11" id="RyU-IJ-fyF"/>
                             <constraint firstItem="I8A-cr-OBi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="qRM-Jn-ME3"/>
-                            <constraint firstItem="I8A-cr-OBi" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="raz-HD-LIo"/>
+                            <constraint firstItem="A3x-do-ym8" firstAttribute="firstBaseline" secondItem="I8A-cr-OBi" secondAttribute="baseline" constant="8" symbolType="layoutAnchor" id="ykQ-VX-6kG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
