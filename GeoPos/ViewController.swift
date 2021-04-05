@@ -15,6 +15,9 @@ class ViewController: UIViewController {
     let mapCameraZoom: Float = 15
     var locationManager: CLLocationManager?
     
+    var route: GMSPolyline?
+    var routePath: GMSMutablePath?
+    
     
     @IBOutlet weak var mapView: GMSMapView!
     
@@ -26,8 +29,18 @@ class ViewController: UIViewController {
     
     func configureLocationManager() {
         locationManager = CLLocationManager()
-        locationManager?.requestWhenInUseAuthorization()
         locationManager?.delegate = self
+        locationManager?.allowsBackgroundLocationUpdates = true
+        locationManager?.pausesLocationUpdatesAutomatically = false
+        locationManager?.startMonitoringSignificantLocationChanges()
+        locationManager?.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        locationManager?.requestAlwaysAuthorization()
+        
+        route?.map = nil
+        route = GMSPolyline()
+        routePath = GMSMutablePath()
+        route?.map = mapView
+        
         locationManager?.startUpdatingLocation()
     }
     
@@ -40,6 +53,11 @@ class ViewController: UIViewController {
         let marker = GMSMarker(position: coordinate)
         marker.map = mapView
     }
+    
+    func addPathPoint(coordinate: CLLocationCoordinate2D) {
+        routePath?.add(coordinate)
+        route?.path = routePath
+    }
 
 
 }
@@ -51,7 +69,7 @@ extension ViewController: CLLocationManagerDelegate {
         }
         print(location)
         goTo(coordinate: location.coordinate)
-        addMarker(coordinate: location.coordinate)
+        addPathPoint(coordinate: location.coordinate)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error){
