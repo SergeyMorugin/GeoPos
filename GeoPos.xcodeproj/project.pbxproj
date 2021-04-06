@@ -17,6 +17,7 @@
 		3438DD7D26161DFD007D1606 /* GeoPosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DD7C26161DFD007D1606 /* GeoPosTests.swift */; };
 		3438DD8826161DFD007D1606 /* GeoPosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DD8726161DFD007D1606 /* GeoPosUITests.swift */; };
 		3438DD962616274E007D1606 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DD952616274E007D1606 /* Secrets.swift */; };
+		3438DD98261B5F9E007D1606 /* DBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DD97261B5F9E007D1606 /* DBService.swift */; };
 		7587DAD1A104781423BB83D6 /* Pods_GeoPos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694DFC1F3EDB51806E2D5043 /* Pods_GeoPos.framework */; };
 		E11959D5F503BCB6A9C87EE1 /* Pods_GeoPosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F1CD600CA0DD057F2FE71F0 /* Pods_GeoPosTests.framework */; };
 /* End PBXBuildFile section */
@@ -55,6 +56,7 @@
 		3438DD8726161DFD007D1606 /* GeoPosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoPosUITests.swift; sourceTree = "<group>"; };
 		3438DD8926161DFD007D1606 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3438DD952616274E007D1606 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		3438DD97261B5F9E007D1606 /* DBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBService.swift; sourceTree = "<group>"; };
 		44210089606CF484F08C582A /* Pods_GeoPos_GeoPosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoPos_GeoPosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57651F49620BCC3F5F94B692 /* Pods-GeoPosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoPosTests.release.xcconfig"; path = "Target Support Files/Pods-GeoPosTests/Pods-GeoPosTests.release.xcconfig"; sourceTree = "<group>"; };
 		694DFC1F3EDB51806E2D5043 /* Pods_GeoPos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoPos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +128,7 @@
 				3438DD7026161DFD007D1606 /* LaunchScreen.storyboard */,
 				3438DD7326161DFD007D1606 /* Info.plist */,
 				3438DD952616274E007D1606 /* Secrets.swift */,
+				3438DD97261B5F9E007D1606 /* DBService.swift */,
 			);
 			path = GeoPos;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 				3438DD5F26161DFB007D1606 /* Frameworks */,
 				3438DD6026161DFB007D1606 /* Resources */,
 				3386E7B8BCA58D0A9115B419 /* [CP] Copy Pods Resources */,
+				A63F43BAD1559B1FE41F9AE7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -221,6 +225,7 @@
 				3438DD8026161DFD007D1606 /* Frameworks */,
 				3438DD8126161DFD007D1606 /* Resources */,
 				FAF8D9D5A0331376ABA3CF9C /* [CP] Copy Pods Resources */,
+				1C18723CAC9FD282A1621769 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -303,6 +308,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1C18723CAC9FD282A1621769 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GeoPos-GeoPosUITests/Pods-GeoPos-GeoPosUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GeoPos-GeoPosUITests/Pods-GeoPos-GeoPosUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GeoPos-GeoPosUITests/Pods-GeoPos-GeoPosUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		3386E7B8BCA58D0A9115B419 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -340,6 +362,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A63F43BAD1559B1FE41F9AE7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GeoPos/Pods-GeoPos-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GeoPos/Pods-GeoPos-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GeoPos/Pods-GeoPos-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DDFE328EA8407A1CC1EFEA85 /* [CP] Check Pods Manifest.lock */ = {
@@ -411,6 +450,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3438DD6A26161DFB007D1606 /* ViewController.swift in Sources */,
+				3438DD98261B5F9E007D1606 /* DBService.swift in Sources */,
 				3438DD962616274E007D1606 /* Secrets.swift in Sources */,
 				3438DD6626161DFB007D1606 /* AppDelegate.swift in Sources */,
 				3438DD6826161DFB007D1606 /* SceneDelegate.swift in Sources */,

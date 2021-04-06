@@ -22,26 +22,37 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A3x-do-ym8">
                                 <rect key="frame" x="0.0" y="781" width="403" height="81"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5vJ-gO-azi">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5vJ-gO-azi">
                                         <rect key="frame" x="36" y="25" width="34" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Start"/>
                                         <connections>
                                             <action selector="startBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Iym-UN-wOU"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4aA-Wn-bhw">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4aA-Wn-bhw">
                                         <rect key="frame" x="120" y="25" width="32" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Stop"/>
                                         <connections>
                                             <action selector="stopBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="u6O-6f-xUS"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4d-RM-UoM">
+                                        <rect key="frame" x="329" y="25" width="34" height="30"/>
+                                        <state key="normal" title="Load"/>
+                                        <connections>
+                                            <action selector="loadBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UQn-ei-kWF"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="m4d-RM-UoM" secondAttribute="trailing" constant="40" id="3O2-7T-tkN"/>
                                     <constraint firstAttribute="height" constant="81" id="AKJ-jN-7rC"/>
+                                    <constraint firstItem="5vJ-gO-azi" firstAttribute="leading" secondItem="A3x-do-ym8" secondAttribute="leading" constant="36" id="E73-mZ-yeC"/>
+                                    <constraint firstItem="m4d-RM-UoM" firstAttribute="top" secondItem="A3x-do-ym8" secondAttribute="top" constant="25" id="Fry-D0-Igj"/>
+                                    <constraint firstItem="4aA-Wn-bhw" firstAttribute="leading" secondItem="5vJ-gO-azi" secondAttribute="trailing" constant="50" id="Xdc-1a-7lE"/>
+                                    <constraint firstItem="4aA-Wn-bhw" firstAttribute="top" secondItem="A3x-do-ym8" secondAttribute="top" constant="25" id="Y3r-28-ciq"/>
+                                    <constraint firstItem="5vJ-gO-azi" firstAttribute="top" secondItem="A3x-do-ym8" secondAttribute="top" constant="25" id="q3e-0E-fwf"/>
                                 </constraints>
                             </view>
                         </subviews>
