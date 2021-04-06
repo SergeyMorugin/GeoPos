@@ -18,6 +18,12 @@
 		3438DD8826161DFD007D1606 /* GeoPosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DD8726161DFD007D1606 /* GeoPosUITests.swift */; };
 		3438DD962616274E007D1606 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DD952616274E007D1606 /* Secrets.swift */; };
 		3438DD98261B5F9E007D1606 /* DBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DD97261B5F9E007D1606 /* DBService.swift */; };
+		3438DDA0261CBA3A007D1606 /* MapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DD9A261CBA3A007D1606 /* MapPresenter.swift */; };
+		3438DDA1261CBA3A007D1606 /* MapWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DD9B261CBA3A007D1606 /* MapWorker.swift */; };
+		3438DDA2261CBA3A007D1606 /* MapRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DD9C261CBA3A007D1606 /* MapRouter.swift */; };
+		3438DDA3261CBA3A007D1606 /* MapModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DD9D261CBA3A007D1606 /* MapModels.swift */; };
+		3438DDA4261CBA3A007D1606 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DD9E261CBA3A007D1606 /* MapViewController.swift */; };
+		3438DDA5261CBA3A007D1606 /* MapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DD9F261CBA3A007D1606 /* MapInteractor.swift */; };
 		7587DAD1A104781423BB83D6 /* Pods_GeoPos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694DFC1F3EDB51806E2D5043 /* Pods_GeoPos.framework */; };
 		E11959D5F503BCB6A9C87EE1 /* Pods_GeoPosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F1CD600CA0DD057F2FE71F0 /* Pods_GeoPosTests.framework */; };
 /* End PBXBuildFile section */
@@ -57,6 +63,12 @@
 		3438DD8926161DFD007D1606 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3438DD952616274E007D1606 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		3438DD97261B5F9E007D1606 /* DBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBService.swift; sourceTree = "<group>"; };
+		3438DD9A261CBA3A007D1606 /* MapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPresenter.swift; sourceTree = "<group>"; };
+		3438DD9B261CBA3A007D1606 /* MapWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapWorker.swift; sourceTree = "<group>"; };
+		3438DD9C261CBA3A007D1606 /* MapRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRouter.swift; sourceTree = "<group>"; };
+		3438DD9D261CBA3A007D1606 /* MapModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModels.swift; sourceTree = "<group>"; };
+		3438DD9E261CBA3A007D1606 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		3438DD9F261CBA3A007D1606 /* MapInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractor.swift; sourceTree = "<group>"; };
 		44210089606CF484F08C582A /* Pods_GeoPos_GeoPosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoPos_GeoPosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57651F49620BCC3F5F94B692 /* Pods-GeoPosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoPosTests.release.xcconfig"; path = "Target Support Files/Pods-GeoPosTests/Pods-GeoPosTests.release.xcconfig"; sourceTree = "<group>"; };
 		694DFC1F3EDB51806E2D5043 /* Pods_GeoPos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoPos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +132,7 @@
 		3438DD6426161DFB007D1606 /* GeoPos */ = {
 			isa = PBXGroup;
 			children = (
+				3438DD99261CB9F0007D1606 /* Map */,
 				3438DD6526161DFB007D1606 /* AppDelegate.swift */,
 				3438DD6726161DFB007D1606 /* SceneDelegate.swift */,
 				3438DD6926161DFB007D1606 /* ViewController.swift */,
@@ -149,6 +162,19 @@
 				3438DD8926161DFD007D1606 /* Info.plist */,
 			);
 			path = GeoPosUITests;
+			sourceTree = "<group>";
+		};
+		3438DD99261CB9F0007D1606 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				3438DD9A261CBA3A007D1606 /* MapPresenter.swift */,
+				3438DD9B261CBA3A007D1606 /* MapWorker.swift */,
+				3438DD9C261CBA3A007D1606 /* MapRouter.swift */,
+				3438DD9D261CBA3A007D1606 /* MapModels.swift */,
+				3438DD9E261CBA3A007D1606 /* MapViewController.swift */,
+				3438DD9F261CBA3A007D1606 /* MapInteractor.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 		7813C602F04BF49E07445C67 /* Pods */ = {
@@ -450,10 +476,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				3438DD6A26161DFB007D1606 /* ViewController.swift in Sources */,
+				3438DDA2261CBA3A007D1606 /* MapRouter.swift in Sources */,
 				3438DD98261B5F9E007D1606 /* DBService.swift in Sources */,
+				3438DDA4261CBA3A007D1606 /* MapViewController.swift in Sources */,
+				3438DDA1261CBA3A007D1606 /* MapWorker.swift in Sources */,
 				3438DD962616274E007D1606 /* Secrets.swift in Sources */,
+				3438DDA5261CBA3A007D1606 /* MapInteractor.swift in Sources */,
+				3438DDA3261CBA3A007D1606 /* MapModels.swift in Sources */,
 				3438DD6626161DFB007D1606 /* AppDelegate.swift in Sources */,
 				3438DD6826161DFB007D1606 /* SceneDelegate.swift in Sources */,
+				3438DDA0261CBA3A007D1606 /* MapPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
