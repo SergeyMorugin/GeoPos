@@ -18,7 +18,6 @@ protocol MapDisplayLogic: class {
 
 class MapViewController: UIViewController, MapDisplayLogic {
     var interactor: MapBusinessLogic?
-    var router: (NSObjectProtocol & MapRoutingLogic & MapDataPassing)?
     
     // MARK: Object lifecycle
     
@@ -38,25 +37,11 @@ class MapViewController: UIViewController, MapDisplayLogic {
         let viewController = self
         let interactor = MapInteractor()
         let presenter = MapPresenter()
-        let router = MapRouter()
         viewController.interactor = interactor
-        viewController.router = router
         interactor.presenter = presenter
         presenter.viewController = viewController
-        router.viewController = viewController
-        router.dataStore = interactor
     }
     
-    // MARK: Routing
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let scene = segue.identifier {
-            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-            if let router = router, router.responds(to: selector) {
-                router.perform(selector, with: segue)
-            }
-        }
-    }
     
     // MARK: View lifecycle
     

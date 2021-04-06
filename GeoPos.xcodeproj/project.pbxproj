@@ -19,8 +19,6 @@
 		3438DD962616274E007D1606 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DD952616274E007D1606 /* Secrets.swift */; };
 		3438DD98261B5F9E007D1606 /* DBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DD97261B5F9E007D1606 /* DBService.swift */; };
 		3438DDA0261CBA3A007D1606 /* MapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DD9A261CBA3A007D1606 /* MapPresenter.swift */; };
-		3438DDA1261CBA3A007D1606 /* MapWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DD9B261CBA3A007D1606 /* MapWorker.swift */; };
-		3438DDA2261CBA3A007D1606 /* MapRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DD9C261CBA3A007D1606 /* MapRouter.swift */; };
 		3438DDA3261CBA3A007D1606 /* MapModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DD9D261CBA3A007D1606 /* MapModels.swift */; };
 		3438DDA4261CBA3A007D1606 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DD9E261CBA3A007D1606 /* MapViewController.swift */; };
 		3438DDA5261CBA3A007D1606 /* MapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DD9F261CBA3A007D1606 /* MapInteractor.swift */; };
@@ -64,8 +62,6 @@
 		3438DD952616274E007D1606 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		3438DD97261B5F9E007D1606 /* DBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBService.swift; sourceTree = "<group>"; };
 		3438DD9A261CBA3A007D1606 /* MapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPresenter.swift; sourceTree = "<group>"; };
-		3438DD9B261CBA3A007D1606 /* MapWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapWorker.swift; sourceTree = "<group>"; };
-		3438DD9C261CBA3A007D1606 /* MapRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRouter.swift; sourceTree = "<group>"; };
 		3438DD9D261CBA3A007D1606 /* MapModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModels.swift; sourceTree = "<group>"; };
 		3438DD9E261CBA3A007D1606 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		3438DD9F261CBA3A007D1606 /* MapInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractor.swift; sourceTree = "<group>"; };
@@ -168,8 +164,6 @@
 			isa = PBXGroup;
 			children = (
 				3438DD9A261CBA3A007D1606 /* MapPresenter.swift */,
-				3438DD9B261CBA3A007D1606 /* MapWorker.swift */,
-				3438DD9C261CBA3A007D1606 /* MapRouter.swift */,
 				3438DD9D261CBA3A007D1606 /* MapModels.swift */,
 				3438DD9E261CBA3A007D1606 /* MapViewController.swift */,
 				3438DD9F261CBA3A007D1606 /* MapInteractor.swift */,
@@ -476,10 +470,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3438DD6A26161DFB007D1606 /* ViewController.swift in Sources */,
-				3438DDA2261CBA3A007D1606 /* MapRouter.swift in Sources */,
 				3438DD98261B5F9E007D1606 /* DBService.swift in Sources */,
 				3438DDA4261CBA3A007D1606 /* MapViewController.swift in Sources */,
-				3438DDA1261CBA3A007D1606 /* MapWorker.swift in Sources */,
 				3438DD962616274E007D1606 /* Secrets.swift in Sources */,
 				3438DDA5261CBA3A007D1606 /* MapInteractor.swift in Sources */,
 				3438DDA3261CBA3A007D1606 /* MapModels.swift in Sources */,
