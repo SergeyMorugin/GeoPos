@@ -11,16 +11,40 @@
 //
 
 import UIKit
+import GoogleMaps
 
-enum Map {
+enum MapModel {
     // MARK: Use cases
     
-    enum Something {
+    enum StartTracking{
         struct Request {
         }
         struct Response {
         }
-        struct ViewModel {
+    }
+    enum StopTracking{
+        struct Request {
         }
+        struct Response {
+        }
+    }
+    enum LoadTrack{
+        struct Request {
+        }
+        struct Response {
+            let track: [Coordinate]
+        }
+    }
+    enum AddCoordinate{
+        struct Response {
+            let coordinate: Coordinate
+        }
+    }
+    struct ViewModel {
+        var startBtnEnable: Bool = true
+        var stopBtnEnable: Bool = false
+        var routePath: GMSMutablePath?
+        var cameraUpdate: GMSCameraUpdate?
+        
     }
 }

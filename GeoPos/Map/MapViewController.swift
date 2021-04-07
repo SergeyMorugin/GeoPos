@@ -11,13 +11,17 @@
 //
 
 import UIKit
+import GoogleMaps
+import CoreLocation
+
 
 protocol MapDisplayLogic: class {
-    func displaySomething(viewModel: Map.Something.ViewModel)
+    func updateScene(viewModel: MapModel.ViewModel)
 }
 
 class MapViewController: UIViewController, MapDisplayLogic {
     var interactor: MapBusinessLogic?
+    var route: GMSPolyline?
     
     // MARK: Object lifecycle
     
@@ -39,27 +43,48 @@ class MapViewController: UIViewController, MapDisplayLogic {
         let presenter = MapPresenter()
         viewController.interactor = interactor
         interactor.presenter = presenter
+        interactor.dbService = RealmService()
+        interactor.locationManager = CLLocationManager()
         presenter.viewController = viewController
     }
-    
     
     // MARK: View lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomething()
+        route = GMSPolyline()
+        route?.map = mapView
     }
     
     // MARK: Do something
     
     //@IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var mapView: GMSMapView!
+    @IBOutlet weak var startBtn: UIButton!
+    @IBOutlet weak var stopBtn: UIButton!
     
-    func doSomething() {
-        let request = Map.Something.Request()
-        interactor?.doSomething(request: request)
+    
+    @IBAction func startBtnClick(_ sender: Any) {
+        interactor?.startTracking(request: .init())
     }
     
-    func displaySomething(viewModel: Map.Something.ViewModel) {
-        //nameTextField.text = viewModel.name
+    @IBAction func stopBtnClick(_ sender: Any) {
+        interactor?.stopTracking(request: .init())
+    }
+    
+    @IBAction func loadBtnClick(_ sender: Any) {
+        interactor?.loadTrack(request: .init())
+    }
+    
+    
+    func updateScene(viewModel: MapModel.ViewModel) {
+        self.startBtn.isEnabled = viewModel.startBtnEnable
+        self.stopBtn.isEnabled = viewModel.stopBtnEnable
+        if let routePath = viewModel.routePath {
+            self.route?.path = routePath
+        }
+        if let camera = viewModel.cameraUpdate {
+            self.mapView.animate(with: camera)
+        }
     }
 }

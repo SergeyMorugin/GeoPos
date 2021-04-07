@@ -11,18 +11,67 @@
 //
 
 import UIKit
+import GoogleMaps
+
 
 protocol MapPresentationLogic {
-    func presentSomething(response: Map.Something.Response)
+    func presentTrack(response: MapModel.LoadTrack.Response)
+    func presentStartTracking(response: MapModel.StartTracking.Response)
+    func presentStopTracking(response: MapModel.StopTracking.Response)
+    func presentCoordinate(response: MapModel.AddCoordinate.Response)
 }
 
 class MapPresenter: MapPresentationLogic {
+    let mapCameraZoom: Float = 15
     weak var viewController: MapDisplayLogic?
+    var routePath: GMSMutablePath?
     
     // MARK: Do something
+    func presentStartTracking(response: MapModel.StartTracking.Response) {
+        var viewModel = MapModel.ViewModel()
+        viewModel.startBtnEnable = false
+        viewModel.stopBtnEnable = true
+        routePath = GMSMutablePath()
+        viewModel.routePath = routePath
+        viewController?.updateScene(viewModel: viewModel)
+    }
     
-    func presentSomething(response: Map.Something.Response) {
-        let viewModel = Map.Something.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
+    func presentStopTracking(response: MapModel.StopTracking.Response) {
+        var viewModel = MapModel.ViewModel()
+        viewModel.startBtnEnable = true
+        viewModel.stopBtnEnable = false
+        viewModel.routePath = routePath
+        viewController?.updateScene(viewModel: viewModel)
+    }
+    
+    func presentTrack(response: MapModel.LoadTrack.Response) {
+        var viewModel = MapModel.ViewModel()
+        viewModel.startBtnEnable = true
+        viewModel.stopBtnEnable = false
+        let route = coordinatesToGMSMutablePath(response.track)
+        viewModel.routePath = route
+        viewModel.cameraUpdate = GMSCameraUpdate.fit(GMSCoordinateBounds.init(path: route))
+        viewController?.updateScene(viewModel: viewModel)
+    }
+    
+    func presentCoordinate(response: MapModel.AddCoordinate.Response) {
+        let coordinate = CLLocationCoordinate2D(
+            latitude: response.coordinate.latitude,
+            longitude: response.coordinate.longitude)
+        routePath?.add(coordinate)
+        var viewModel = MapModel.ViewModel()
+        viewModel.startBtnEnable = false
+        viewModel.stopBtnEnable = true
+        viewModel.routePath = routePath
+        viewModel.cameraUpdate = GMSCameraUpdate.setTarget(coordinate, zoom: mapCameraZoom)
+        viewController?.updateScene(viewModel: viewModel)
+    }
+    
+    func coordinatesToGMSMutablePath(_ coordinates: [Coordinate]) -> GMSMutablePath {
+        let route = GMSMutablePath()
+        coordinates.forEach({
+            route.add(CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude))
+        })
+        return route
     }
 }

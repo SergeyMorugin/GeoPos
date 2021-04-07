@@ -11,7 +11,7 @@ import GoogleMaps
 import CoreLocation
 
 
-class ViewController: UIViewController {
+class ViewController2: UIViewController {
     let mapCameraZoom: Float = 15
     var locationManager: CLLocationManager?
     
@@ -109,7 +109,7 @@ class ViewController: UIViewController {
     
 }
 
-extension ViewController: CLLocationManagerDelegate {
+extension ViewController2: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else {
             return

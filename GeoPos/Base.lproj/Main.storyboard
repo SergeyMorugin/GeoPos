@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GeoPos" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MapViewController" customModule="GeoPos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,21 +26,21 @@
                                         <rect key="frame" x="36" y="25" width="34" height="30"/>
                                         <state key="normal" title="Start"/>
                                         <connections>
-                                            <action selector="startBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Iym-UN-wOU"/>
+                                            <action selector="startBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vd7-ZJ-EEW"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4aA-Wn-bhw">
                                         <rect key="frame" x="120" y="25" width="32" height="30"/>
                                         <state key="normal" title="Stop"/>
                                         <connections>
-                                            <action selector="stopBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="u6O-6f-xUS"/>
+                                            <action selector="stopBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bOi-n4-Be3"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4d-RM-UoM">
                                         <rect key="frame" x="329" y="25" width="34" height="30"/>
                                         <state key="normal" title="Load"/>
                                         <connections>
-                                            <action selector="loadBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UQn-ei-kWF"/>
+                                            <action selector="loadBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iyb-yX-Rp6"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -69,7 +69,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="mapView" destination="I8A-cr-OBi" id="2tm-5Q-Lal"/>
+                        <outlet property="mapView" destination="I8A-cr-OBi" id="dSn-4U-ZTW"/>
+                        <outlet property="startBtn" destination="5vJ-gO-azi" id="lwW-eY-2Fo"/>
+                        <outlet property="stopBtn" destination="4aA-Wn-bhw" id="FnN-xp-NeQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

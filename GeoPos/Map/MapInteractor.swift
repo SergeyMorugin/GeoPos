@@ -11,25 +11,87 @@
 //
 
 import UIKit
+import CoreLocation
 
 protocol MapBusinessLogic {
-    func doSomething(request: Map.Something.Request)
+    func startTracking(request: MapModel.StartTracking.Request)
+    func stopTracking(request: MapModel.StopTracking.Request)
+    func loadTrack(request: MapModel.LoadTrack.Request)
 }
 
 protocol MapDataStore {
     //var name: String { get set }
+    var locationManager: CLLocationManager? { get set }
+    var dbService: DBService? { get set }
+    var routePoints: [Coordinate] { get set }
 }
 
-class MapInteractor: MapBusinessLogic, MapDataStore {
+class MapInteractor: NSObject, MapBusinessLogic, MapDataStore {
     var presenter: MapPresentationLogic?
-    //var name: String = ""
+    
+    var locationManager: CLLocationManager?
+    var dbService: DBService?
+    var routePoints: [Coordinate] = []
     
     // MARK: Do something
     
-    func doSomething(request: Map.Something.Request) {
-
+    func startTracking(request: MapModel.StartTracking.Request) {
+        routePoints = []
+        initLocationManager()
+        locationManager?.startUpdatingLocation()
+        locationManager?.startMonitoringSignificantLocationChanges()
+        presenter?.presentStartTracking(response: .init())
+    }
+    
+    func stopTracking(request: MapModel.StopTracking.Request) {
+        locationManager?.stopUpdatingLocation()
+        locationManager?.stopMonitoringSignificantLocationChanges()
+        dbService?.purgeCoordinates()
+        dbService?.save(coordinates: routePoints)
+        presenter?.presentStopTracking(response: .init())
+    }
+    
+    func loadTrack(request: MapModel.LoadTrack.Request) {
+        locationManager?.stopUpdatingLocation()
+        locationManager?.stopMonitoringSignificantLocationChanges()
+        let coordinates = dbService?.fetchCoordinates()
+        let response = MapModel.LoadTrack.Response(
+            track: coordinates ?? []
+        )
+        presenter?.presentTrack(response: response)
+    }
+    
+    func addCoordinate(_ coordinate: Coordinate) {
+        routePoints.append(coordinate)
+        presenter?.presentCoordinate(response: .init(coordinate: coordinate))
+    }
+    
+    func initLocationManager() {
+        locationManager?.delegate = self
+        //locationManager?.stopUpdatingLocation()
+        locationManager?.allowsBackgroundLocationUpdates = true
+        locationManager?.pausesLocationUpdatesAutomatically = false
+        locationManager?.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        locationManager?.stopUpdatingLocation()
+        locationManager?.stopMonitoringSignificantLocationChanges()
+        locationManager?.requestAlwaysAuthorization()
         
-        let response = Map.Something.Response()
-        presenter?.presentSomething(response: response)
+    }
+}
+
+extension MapInteractor: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.first else {
+            return
+        }
+        print(location)
+        let coordinate = Coordinate(
+            latitude: location.coordinate.latitude,
+            longitude: location.coordinate.longitude)
+        addCoordinate(coordinate)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error){
+        print(error)
     }
 }
