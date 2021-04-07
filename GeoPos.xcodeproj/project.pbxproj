@@ -10,7 +10,6 @@
 		14A5F332231E577F028D5F1D /* Pods_GeoPos_GeoPosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44210089606CF484F08C582A /* Pods_GeoPos_GeoPosUITests.framework */; };
 		3438DD6626161DFB007D1606 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DD6526161DFB007D1606 /* AppDelegate.swift */; };
 		3438DD6826161DFB007D1606 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DD6726161DFB007D1606 /* SceneDelegate.swift */; };
-		3438DD6A26161DFB007D1606 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DD6926161DFB007D1606 /* ViewController.swift */; };
 		3438DD6D26161DFB007D1606 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3438DD6B26161DFB007D1606 /* Main.storyboard */; };
 		3438DD6F26161DFD007D1606 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3438DD6E26161DFD007D1606 /* Assets.xcassets */; };
 		3438DD7226161DFD007D1606 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3438DD7026161DFD007D1606 /* LaunchScreen.storyboard */; };
@@ -48,7 +47,6 @@
 		3438DD6226161DFB007D1606 /* GeoPos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoPos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3438DD6526161DFB007D1606 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3438DD6726161DFB007D1606 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3438DD6926161DFB007D1606 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3438DD6C26161DFB007D1606 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3438DD6E26161DFD007D1606 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3438DD7126161DFD007D1606 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -131,7 +129,6 @@
 				3438DD99261CB9F0007D1606 /* Map */,
 				3438DD6526161DFB007D1606 /* AppDelegate.swift */,
 				3438DD6726161DFB007D1606 /* SceneDelegate.swift */,
-				3438DD6926161DFB007D1606 /* ViewController.swift */,
 				3438DD6B26161DFB007D1606 /* Main.storyboard */,
 				3438DD6E26161DFD007D1606 /* Assets.xcassets */,
 				3438DD7026161DFD007D1606 /* LaunchScreen.storyboard */,
@@ -469,7 +466,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3438DD6A26161DFB007D1606 /* ViewController.swift in Sources */,
 				3438DD98261B5F9E007D1606 /* DBService.swift in Sources */,
 				3438DDA4261CBA3A007D1606 /* MapViewController.swift in Sources */,
 				3438DD962616274E007D1606 /* Secrets.swift in Sources */,
