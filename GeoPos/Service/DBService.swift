@@ -25,7 +25,7 @@ enum UserActionStatus {
 
 class RealmService: DBService {
     
-    static let shared = RealmService()
+    static var shared = RealmService()
     let localRealm = try! Realm()
     
     func save(coordinates: [Coordinate]) {

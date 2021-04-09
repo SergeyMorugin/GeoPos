@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 final class MapCoordinator: BaseCoordinator {
     
@@ -24,6 +25,15 @@ final class MapCoordinator: BaseCoordinator {
         controller.onLogout = { [weak self] in
             self?.onFinishFlow?()
         }
+        
+        let viewController = controller
+        let interactor = MapInteractor()
+        let presenter = MapPresenter()
+        viewController.interactor = interactor
+        interactor.presenter = presenter
+        interactor.dbService = RealmService.shared
+        interactor.locationManager = CLLocationManager()
+        presenter.viewController = viewController
         
         setAsRoot(controller)
         self.rootController = controller
