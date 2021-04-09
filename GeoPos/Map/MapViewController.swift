@@ -43,7 +43,7 @@ class MapViewController: UIViewController, MapDisplayLogic {
         let presenter = MapPresenter()
         viewController.interactor = interactor
         interactor.presenter = presenter
-        interactor.dbService = RealmService()
+        interactor.dbService = RealmService.shared
         interactor.locationManager = CLLocationManager()
         presenter.viewController = viewController
     }
