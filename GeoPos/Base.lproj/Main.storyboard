@@ -10,7 +10,7 @@
         <!--Auth View Controller-->
         <scene sceneID="IeZ-LV-l3o">
             <objects>
-                <viewController id="Qww-2p-Z98" customClass="AuthViewController" customModule="GeoPos" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AuthViewController" id="Qww-2p-Z98" customClass="AuthViewController" customModule="GeoPos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="arV-VP-prY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -32,7 +32,7 @@
                                         <rect key="frame" x="0.0" y="126" width="394" height="30"/>
                                         <state key="normal" title="Login"/>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="presentation" identifier="LoginSegueIdentifier" modalPresentationStyle="overFullScreen" id="V9u-ZY-8T9"/>
+                                            <action selector="onLoginClick:" destination="Qww-2p-Z98" eventType="touchUpInside" id="a5c-10-LAR"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JCT-C9-pe2">
@@ -65,7 +65,7 @@
         <!--Map View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MapViewController" customModule="GeoPos" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" id="BYZ-38-t0r" customClass="MapViewController" customModule="GeoPos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -92,21 +92,30 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4d-RM-UoM">
-                                        <rect key="frame" x="329" y="25" width="34" height="30"/>
+                                        <rect key="frame" x="184" y="25" width="34" height="30"/>
                                         <state key="normal" title="Load"/>
                                         <connections>
                                             <action selector="loadBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iyb-yX-Rp6"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AEf-cS-r9O">
+                                        <rect key="frame" x="344" y="25" width="56" height="30"/>
+                                        <state key="normal" title="SignOut"/>
+                                        <connections>
+                                            <action selector="signoutBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nrD-1t-KwL"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="m4d-RM-UoM" secondAttribute="trailing" constant="40" id="3O2-7T-tkN"/>
+                                    <constraint firstItem="m4d-RM-UoM" firstAttribute="leading" secondItem="4aA-Wn-bhw" secondAttribute="trailing" constant="32" id="1lj-FK-whQ"/>
                                     <constraint firstAttribute="height" constant="81" id="AKJ-jN-7rC"/>
                                     <constraint firstItem="5vJ-gO-azi" firstAttribute="leading" secondItem="A3x-do-ym8" secondAttribute="leading" constant="36" id="E73-mZ-yeC"/>
                                     <constraint firstItem="m4d-RM-UoM" firstAttribute="top" secondItem="A3x-do-ym8" secondAttribute="top" constant="25" id="Fry-D0-Igj"/>
                                     <constraint firstItem="4aA-Wn-bhw" firstAttribute="leading" secondItem="5vJ-gO-azi" secondAttribute="trailing" constant="50" id="Xdc-1a-7lE"/>
                                     <constraint firstItem="4aA-Wn-bhw" firstAttribute="top" secondItem="A3x-do-ym8" secondAttribute="top" constant="25" id="Y3r-28-ciq"/>
+                                    <constraint firstItem="AEf-cS-r9O" firstAttribute="top" secondItem="A3x-do-ym8" secondAttribute="top" constant="25" id="aAA-Ty-YUg"/>
+                                    <constraint firstAttribute="trailing" secondItem="AEf-cS-r9O" secondAttribute="trailing" constant="3" id="jXj-On-7D3"/>
                                     <constraint firstItem="5vJ-gO-azi" firstAttribute="top" secondItem="A3x-do-ym8" secondAttribute="top" constant="25" id="q3e-0E-fwf"/>
                                 </constraints>
                             </view>

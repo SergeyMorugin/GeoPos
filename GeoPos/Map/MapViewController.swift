@@ -22,6 +22,7 @@ protocol MapDisplayLogic: class {
 class MapViewController: UIViewController, MapDisplayLogic {
     var interactor: MapBusinessLogic?
     var route: GMSPolyline?
+    var onLogout: (() -> Void)?
     
     // MARK: Object lifecycle
     
@@ -76,6 +77,10 @@ class MapViewController: UIViewController, MapDisplayLogic {
         interactor?.loadTrack(request: .init())
     }
     
+    @IBAction func signoutBtnClick(_ sender: Any) {
+        UserDefaults.standard.set(false, forKey: "isLogin")
+        onLogout?()
+    }
     
     func updateScene(viewModel: MapModel.ViewModel) {
         self.startBtn.isEnabled = viewModel.startBtnEnable

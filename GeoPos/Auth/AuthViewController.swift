@@ -10,19 +10,10 @@ import UIKit
 
 class AuthViewController: UIViewController {
     var storeService: DBService?
+    var onLogin: (() -> Void)?
     
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        config()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        config()
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,22 +37,16 @@ class AuthViewController: UIViewController {
         }
     }
     
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if identifier == "LoginSegueIdentifier" {
-            if let store = storeService,
-               store.authUser(
-                login: loginTextField.text ?? "",
-                password: passwordTextField.text ?? "") {
-                return true
-            } else {
-                showAlert(withMessage: "Wrong credentials!")
-            }
+    @IBAction func onLoginClick(_ sender: Any) {
+        if let store = storeService,
+           store.authUser(
+            login: loginTextField.text ?? "",
+            password: passwordTextField.text ?? "") {
+            UserDefaults.standard.set(true, forKey: "isLogin")
+            onLogin?()
+        } else {
+            showAlert(withMessage: "Wrong credentials!")
         }
-        return false
-    }
-    
-    func config() {
-        storeService = RealmService.shared
     }
     
     func showAlert(withMessage message: String) {
