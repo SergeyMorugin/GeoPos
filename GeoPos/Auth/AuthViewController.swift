@@ -8,15 +8,24 @@
 
 import UIKit
 
-class AuthViewController: UIViewController {
+protocol SecureViewController {
+    func activateSecureMethod()
+    func inactivateSecureMethod()
+}
+
+class AuthViewController: UIViewController, SecureViewController {
+
+    
     var storeService: DBService?
     var onLogin: (() -> Void)?
     
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var securityView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loginTextField.autocorrectionType = .no
 
         // Do any additional setup after loading the view.
     }
@@ -58,4 +67,11 @@ class AuthViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
 
+    func activateSecureMethod() {
+        securityView.isHidden = false
+    }
+    
+    func inactivateSecureMethod() {
+        securityView.isHidden = true
+    }
 }
