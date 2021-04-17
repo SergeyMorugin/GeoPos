@@ -81,7 +81,7 @@ class MapInteractor: NSObject, MapBusinessLogic, MapDataStore {
 
 extension MapInteractor: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.first else {
+        guard let location = locations.last else {
             return
         }
         print(location)

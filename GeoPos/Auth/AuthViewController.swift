@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+
 
 protocol SecureViewController {
     func activateSecureMethod()
@@ -22,13 +25,33 @@ class AuthViewController: UIViewController, SecureViewController {
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var securityView: UIView!
+    @IBOutlet weak var loginBtn: UIButton!
+    @IBOutlet weak var signUpBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loginTextField.autocorrectionType = .no
-
+        configBindings()
         // Do any additional setup after loading the view.
     }
+    
+    func configBindings() {
+        Observable
+            .combineLatest(
+                loginTextField.rx.text,
+                passwordTextField.rx.text
+            )
+            .map { login, password in
+                return !(login ?? "").isEmpty && ((password ?? "").count > 5)
+            }
+        .bind { [weak loginBtn, signUpBtn] inputFilled in
+            loginBtn?.isEnabled = inputFilled
+            signUpBtn?.isEnabled = inputFilled
+        }
+        
+    }
+    
+    
     
     @IBAction func onSignupClick(_ sender: Any) {
         guard
