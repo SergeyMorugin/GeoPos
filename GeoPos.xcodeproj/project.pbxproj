@@ -21,6 +21,14 @@
 		3438DDA3261CBA3A007D1606 /* MapModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DD9D261CBA3A007D1606 /* MapModels.swift */; };
 		3438DDA4261CBA3A007D1606 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DD9E261CBA3A007D1606 /* MapViewController.swift */; };
 		3438DDA5261CBA3A007D1606 /* MapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DD9F261CBA3A007D1606 /* MapInteractor.swift */; };
+		3438DDA82620335E007D1606 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DDA72620335E007D1606 /* Coordinate.swift */; };
+		3438DDAB26203442007D1606 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DDAA26203442007D1606 /* User.swift */; };
+		3438DDAE26203B02007D1606 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DDAD26203B02007D1606 /* AuthViewController.swift */; };
+		3438DDB026208DCC007D1606 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DDAF26208DCC007D1606 /* BaseCoordinator.swift */; };
+		3438DDB226208E41007D1606 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DDB126208E41007D1606 /* ApplicationCoordinator.swift */; };
+		3438DDB426208EE5007D1606 /* MapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DDB326208EE5007D1606 /* MapCoordinator.swift */; };
+		3438DDB626208FB8007D1606 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DDB526208FB8007D1606 /* Storyboard.swift */; };
+		3438DDB826209208007D1606 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DDB726209208007D1606 /* AuthCoordinator.swift */; };
 		7587DAD1A104781423BB83D6 /* Pods_GeoPos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694DFC1F3EDB51806E2D5043 /* Pods_GeoPos.framework */; };
 		E11959D5F503BCB6A9C87EE1 /* Pods_GeoPosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F1CD600CA0DD057F2FE71F0 /* Pods_GeoPosTests.framework */; };
 /* End PBXBuildFile section */
@@ -57,12 +65,20 @@
 		3438DD8326161DFD007D1606 /* GeoPosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeoPosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3438DD8726161DFD007D1606 /* GeoPosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoPosUITests.swift; sourceTree = "<group>"; };
 		3438DD8926161DFD007D1606 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3438DD952616274E007D1606 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		3438DD952616274E007D1606 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Secrets.swift; path = ../Secrets.swift; sourceTree = "<group>"; };
 		3438DD97261B5F9E007D1606 /* DBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBService.swift; sourceTree = "<group>"; };
 		3438DD9A261CBA3A007D1606 /* MapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPresenter.swift; sourceTree = "<group>"; };
 		3438DD9D261CBA3A007D1606 /* MapModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModels.swift; sourceTree = "<group>"; };
 		3438DD9E261CBA3A007D1606 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		3438DD9F261CBA3A007D1606 /* MapInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractor.swift; sourceTree = "<group>"; };
+		3438DDA72620335E007D1606 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
+		3438DDAA26203442007D1606 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3438DDAD26203B02007D1606 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		3438DDAF26208DCC007D1606 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
+		3438DDB126208E41007D1606 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
+		3438DDB326208EE5007D1606 /* MapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
+		3438DDB526208FB8007D1606 /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
+		3438DDB726209208007D1606 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		44210089606CF484F08C582A /* Pods_GeoPos_GeoPosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoPos_GeoPosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57651F49620BCC3F5F94B692 /* Pods-GeoPosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoPosTests.release.xcconfig"; path = "Target Support Files/Pods-GeoPosTests/Pods-GeoPosTests.release.xcconfig"; sourceTree = "<group>"; };
 		694DFC1F3EDB51806E2D5043 /* Pods_GeoPos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoPos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +142,9 @@
 		3438DD6426161DFB007D1606 /* GeoPos */ = {
 			isa = PBXGroup;
 			children = (
+				3438DDAC26203A2A007D1606 /* Auth */,
+				3438DDA926203379007D1606 /* Service */,
+				3438DDA62620332A007D1606 /* Model */,
 				3438DD99261CB9F0007D1606 /* Map */,
 				3438DD6526161DFB007D1606 /* AppDelegate.swift */,
 				3438DD6726161DFB007D1606 /* SceneDelegate.swift */,
@@ -133,8 +152,9 @@
 				3438DD6E26161DFD007D1606 /* Assets.xcassets */,
 				3438DD7026161DFD007D1606 /* LaunchScreen.storyboard */,
 				3438DD7326161DFD007D1606 /* Info.plist */,
-				3438DD952616274E007D1606 /* Secrets.swift */,
-				3438DD97261B5F9E007D1606 /* DBService.swift */,
+				3438DDAF26208DCC007D1606 /* BaseCoordinator.swift */,
+				3438DDB126208E41007D1606 /* ApplicationCoordinator.swift */,
+				3438DDB526208FB8007D1606 /* Storyboard.swift */,
 			);
 			path = GeoPos;
 			sourceTree = "<group>";
@@ -164,8 +184,36 @@
 				3438DD9D261CBA3A007D1606 /* MapModels.swift */,
 				3438DD9E261CBA3A007D1606 /* MapViewController.swift */,
 				3438DD9F261CBA3A007D1606 /* MapInteractor.swift */,
+				3438DDB326208EE5007D1606 /* MapCoordinator.swift */,
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		3438DDA62620332A007D1606 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3438DDA72620335E007D1606 /* Coordinate.swift */,
+				3438DDAA26203442007D1606 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3438DDA926203379007D1606 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				3438DD97261B5F9E007D1606 /* DBService.swift */,
+				3438DD952616274E007D1606 /* Secrets.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		3438DDAC26203A2A007D1606 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				3438DDAD26203B02007D1606 /* AuthViewController.swift */,
+				3438DDB726209208007D1606 /* AuthCoordinator.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		7813C602F04BF49E07445C67 /* Pods */ = {
@@ -466,13 +514,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3438DDAE26203B02007D1606 /* AuthViewController.swift in Sources */,
+				3438DDB626208FB8007D1606 /* Storyboard.swift in Sources */,
 				3438DD98261B5F9E007D1606 /* DBService.swift in Sources */,
+				3438DDB226208E41007D1606 /* ApplicationCoordinator.swift in Sources */,
 				3438DDA4261CBA3A007D1606 /* MapViewController.swift in Sources */,
 				3438DD962616274E007D1606 /* Secrets.swift in Sources */,
+				3438DDB826209208007D1606 /* AuthCoordinator.swift in Sources */,
 				3438DDA5261CBA3A007D1606 /* MapInteractor.swift in Sources */,
 				3438DDA3261CBA3A007D1606 /* MapModels.swift in Sources */,
+				3438DDA82620335E007D1606 /* Coordinate.swift in Sources */,
+				3438DDB026208DCC007D1606 /* BaseCoordinator.swift in Sources */,
+				3438DDB426208EE5007D1606 /* MapCoordinator.swift in Sources */,
 				3438DD6626161DFB007D1606 /* AppDelegate.swift in Sources */,
 				3438DD6826161DFB007D1606 /* SceneDelegate.swift in Sources */,
+				3438DDAB26203442007D1606 /* User.swift in Sources */,
 				3438DDA0261CBA3A007D1606 /* MapPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

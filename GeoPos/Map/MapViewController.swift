@@ -12,7 +12,6 @@
 
 import UIKit
 import GoogleMaps
-import CoreLocation
 
 
 protocol MapDisplayLogic: class {
@@ -22,31 +21,9 @@ protocol MapDisplayLogic: class {
 class MapViewController: UIViewController, MapDisplayLogic {
     var interactor: MapBusinessLogic?
     var route: GMSPolyline?
+    var onLogout: (() -> Void)?
     
     // MARK: Object lifecycle
-    
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        setup()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setup()
-    }
-    
-    // MARK: Setup
-    
-    private func setup() {
-        let viewController = self
-        let interactor = MapInteractor()
-        let presenter = MapPresenter()
-        viewController.interactor = interactor
-        interactor.presenter = presenter
-        interactor.dbService = RealmService()
-        interactor.locationManager = CLLocationManager()
-        presenter.viewController = viewController
-    }
     
     // MARK: View lifecycle
     
@@ -76,6 +53,10 @@ class MapViewController: UIViewController, MapDisplayLogic {
         interactor?.loadTrack(request: .init())
     }
     
+    @IBAction func signoutBtnClick(_ sender: Any) {
+        UserDefaults.standard.set(false, forKey: "isLogin")
+        onLogout?()
+    }
     
     func updateScene(viewModel: MapModel.ViewModel) {
         self.startBtn.isEnabled = viewModel.startBtnEnable
