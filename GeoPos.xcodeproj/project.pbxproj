@@ -10,13 +10,17 @@
 		14A5F332231E577F028D5F1D /* Pods_GeoPos_GeoPosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44210089606CF484F08C582A /* Pods_GeoPos_GeoPosUITests.framework */; };
 		3438DD6626161DFB007D1606 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DD6526161DFB007D1606 /* AppDelegate.swift */; };
 		3438DD6826161DFB007D1606 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DD6726161DFB007D1606 /* SceneDelegate.swift */; };
-		3438DD6A26161DFB007D1606 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DD6926161DFB007D1606 /* ViewController.swift */; };
 		3438DD6D26161DFB007D1606 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3438DD6B26161DFB007D1606 /* Main.storyboard */; };
 		3438DD6F26161DFD007D1606 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3438DD6E26161DFD007D1606 /* Assets.xcassets */; };
 		3438DD7226161DFD007D1606 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3438DD7026161DFD007D1606 /* LaunchScreen.storyboard */; };
 		3438DD7D26161DFD007D1606 /* GeoPosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DD7C26161DFD007D1606 /* GeoPosTests.swift */; };
 		3438DD8826161DFD007D1606 /* GeoPosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DD8726161DFD007D1606 /* GeoPosUITests.swift */; };
 		3438DD962616274E007D1606 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DD952616274E007D1606 /* Secrets.swift */; };
+		3438DD98261B5F9E007D1606 /* DBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DD97261B5F9E007D1606 /* DBService.swift */; };
+		3438DDA0261CBA3A007D1606 /* MapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DD9A261CBA3A007D1606 /* MapPresenter.swift */; };
+		3438DDA3261CBA3A007D1606 /* MapModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DD9D261CBA3A007D1606 /* MapModels.swift */; };
+		3438DDA4261CBA3A007D1606 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DD9E261CBA3A007D1606 /* MapViewController.swift */; };
+		3438DDA5261CBA3A007D1606 /* MapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DD9F261CBA3A007D1606 /* MapInteractor.swift */; };
 		7587DAD1A104781423BB83D6 /* Pods_GeoPos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694DFC1F3EDB51806E2D5043 /* Pods_GeoPos.framework */; };
 		E11959D5F503BCB6A9C87EE1 /* Pods_GeoPosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F1CD600CA0DD057F2FE71F0 /* Pods_GeoPosTests.framework */; };
 /* End PBXBuildFile section */
@@ -43,7 +47,6 @@
 		3438DD6226161DFB007D1606 /* GeoPos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoPos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3438DD6526161DFB007D1606 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3438DD6726161DFB007D1606 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3438DD6926161DFB007D1606 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3438DD6C26161DFB007D1606 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3438DD6E26161DFD007D1606 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3438DD7126161DFD007D1606 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,6 +58,11 @@
 		3438DD8726161DFD007D1606 /* GeoPosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoPosUITests.swift; sourceTree = "<group>"; };
 		3438DD8926161DFD007D1606 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3438DD952616274E007D1606 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		3438DD97261B5F9E007D1606 /* DBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBService.swift; sourceTree = "<group>"; };
+		3438DD9A261CBA3A007D1606 /* MapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPresenter.swift; sourceTree = "<group>"; };
+		3438DD9D261CBA3A007D1606 /* MapModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModels.swift; sourceTree = "<group>"; };
+		3438DD9E261CBA3A007D1606 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		3438DD9F261CBA3A007D1606 /* MapInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractor.swift; sourceTree = "<group>"; };
 		44210089606CF484F08C582A /* Pods_GeoPos_GeoPosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoPos_GeoPosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57651F49620BCC3F5F94B692 /* Pods-GeoPosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoPosTests.release.xcconfig"; path = "Target Support Files/Pods-GeoPosTests/Pods-GeoPosTests.release.xcconfig"; sourceTree = "<group>"; };
 		694DFC1F3EDB51806E2D5043 /* Pods_GeoPos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoPos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,14 +126,15 @@
 		3438DD6426161DFB007D1606 /* GeoPos */ = {
 			isa = PBXGroup;
 			children = (
+				3438DD99261CB9F0007D1606 /* Map */,
 				3438DD6526161DFB007D1606 /* AppDelegate.swift */,
 				3438DD6726161DFB007D1606 /* SceneDelegate.swift */,
-				3438DD6926161DFB007D1606 /* ViewController.swift */,
 				3438DD6B26161DFB007D1606 /* Main.storyboard */,
 				3438DD6E26161DFD007D1606 /* Assets.xcassets */,
 				3438DD7026161DFD007D1606 /* LaunchScreen.storyboard */,
 				3438DD7326161DFD007D1606 /* Info.plist */,
 				3438DD952616274E007D1606 /* Secrets.swift */,
+				3438DD97261B5F9E007D1606 /* DBService.swift */,
 			);
 			path = GeoPos;
 			sourceTree = "<group>";
@@ -146,6 +155,17 @@
 				3438DD8926161DFD007D1606 /* Info.plist */,
 			);
 			path = GeoPosUITests;
+			sourceTree = "<group>";
+		};
+		3438DD99261CB9F0007D1606 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				3438DD9A261CBA3A007D1606 /* MapPresenter.swift */,
+				3438DD9D261CBA3A007D1606 /* MapModels.swift */,
+				3438DD9E261CBA3A007D1606 /* MapViewController.swift */,
+				3438DD9F261CBA3A007D1606 /* MapInteractor.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 		7813C602F04BF49E07445C67 /* Pods */ = {
@@ -183,6 +203,7 @@
 				3438DD5F26161DFB007D1606 /* Frameworks */,
 				3438DD6026161DFB007D1606 /* Resources */,
 				3386E7B8BCA58D0A9115B419 /* [CP] Copy Pods Resources */,
+				A63F43BAD1559B1FE41F9AE7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -221,6 +242,7 @@
 				3438DD8026161DFD007D1606 /* Frameworks */,
 				3438DD8126161DFD007D1606 /* Resources */,
 				FAF8D9D5A0331376ABA3CF9C /* [CP] Copy Pods Resources */,
+				1C18723CAC9FD282A1621769 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -303,6 +325,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1C18723CAC9FD282A1621769 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GeoPos-GeoPosUITests/Pods-GeoPos-GeoPosUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GeoPos-GeoPosUITests/Pods-GeoPos-GeoPosUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GeoPos-GeoPosUITests/Pods-GeoPos-GeoPosUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		3386E7B8BCA58D0A9115B419 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -340,6 +379,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A63F43BAD1559B1FE41F9AE7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GeoPos/Pods-GeoPos-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GeoPos/Pods-GeoPos-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GeoPos/Pods-GeoPos-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DDFE328EA8407A1CC1EFEA85 /* [CP] Check Pods Manifest.lock */ = {
@@ -410,10 +466,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3438DD6A26161DFB007D1606 /* ViewController.swift in Sources */,
+				3438DD98261B5F9E007D1606 /* DBService.swift in Sources */,
+				3438DDA4261CBA3A007D1606 /* MapViewController.swift in Sources */,
 				3438DD962616274E007D1606 /* Secrets.swift in Sources */,
+				3438DDA5261CBA3A007D1606 /* MapInteractor.swift in Sources */,
+				3438DDA3261CBA3A007D1606 /* MapModels.swift in Sources */,
 				3438DD6626161DFB007D1606 /* AppDelegate.swift in Sources */,
 				3438DD6826161DFB007D1606 /* SceneDelegate.swift in Sources */,
+				3438DDA0261CBA3A007D1606 /* MapPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

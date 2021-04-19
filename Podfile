@@ -7,6 +7,8 @@ target 'GeoPos' do
 
   # Pods for GeoPos
   pod "GoogleMaps"
+  pod 'RealmSwift'
+   
 
 
   target 'GeoPosTests' do
