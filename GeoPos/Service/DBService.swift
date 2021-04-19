@@ -44,7 +44,7 @@ class RealmService: DBService {
     
     func purgeCoordinates() {
         try! localRealm.write {
-            localRealm.deleteAll()
+            localRealm.delete(localRealm.objects(Coordinate.self))
         }
     }
     

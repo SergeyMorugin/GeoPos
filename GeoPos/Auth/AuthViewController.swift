@@ -37,13 +37,13 @@ class AuthViewController: UIViewController, SecureViewController {
     
     func configBindings() {
         Observable
-            .combineLatest(
-                loginTextField.rx.text,
-                passwordTextField.rx.text
-            )
-            .map { login, password in
-                return !(login ?? "").isEmpty && ((password ?? "").count > 5)
-            }
+        .combineLatest(
+            loginTextField.rx.text,
+            passwordTextField.rx.text
+        )
+        .map { login, password in
+            return !(login ?? "").isEmpty && ((password ?? "").count > 5)
+        }
         .bind { [weak loginBtn, signUpBtn] inputFilled in
             loginBtn?.isEnabled = inputFilled
             signUpBtn?.isEnabled = inputFilled

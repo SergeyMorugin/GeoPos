@@ -12,6 +12,9 @@
 
 import UIKit
 import CoreLocation
+import RxSwift
+import RxCocoa
+
 
 protocol MapBusinessLogic {
     func startTracking(request: MapModel.StartTracking.Request)
@@ -32,6 +35,8 @@ class MapInteractor: NSObject, MapBusinessLogic, MapDataStore {
     var locationManager: CLLocationManager?
     var dbService: DBService?
     var routePoints: [Coordinate] = []
+    let rxLocation = BehaviorRelay<CLLocationCoordinate2D?>(value: nil)
+    var rxSubscription: Disposable?
     
     // MARK: Do something
     
@@ -40,10 +45,22 @@ class MapInteractor: NSObject, MapBusinessLogic, MapDataStore {
         initLocationManager()
         locationManager?.startUpdatingLocation()
         locationManager?.startMonitoringSignificantLocationChanges()
+        locationManager?.delegate = self
         presenter?.presentStartTracking(response: .init())
+        
+        rxSubscription = rxLocation.subscribe(onNext: {  [weak self] location in
+            if let location = location {
+                let coordinate = Coordinate(
+                            latitude: location.latitude,
+                            longitude: location.longitude)
+                self?.addCoordinate(coordinate)
+            }
+        })
     }
     
     func stopTracking(request: MapModel.StopTracking.Request) {
+        rxSubscription?.dispose()
+        locationManager?.delegate = nil
         locationManager?.stopUpdatingLocation()
         locationManager?.stopMonitoringSignificantLocationChanges()
         dbService?.purgeCoordinates()
@@ -67,15 +84,12 @@ class MapInteractor: NSObject, MapBusinessLogic, MapDataStore {
     }
     
     func initLocationManager() {
-        locationManager?.delegate = self
-        //locationManager?.stopUpdatingLocation()
         locationManager?.allowsBackgroundLocationUpdates = true
         locationManager?.pausesLocationUpdatesAutomatically = false
         locationManager?.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         locationManager?.stopUpdatingLocation()
         locationManager?.stopMonitoringSignificantLocationChanges()
         locationManager?.requestAlwaysAuthorization()
-        
     }
 }
 
@@ -85,10 +99,7 @@ extension MapInteractor: CLLocationManagerDelegate {
             return
         }
         print(location)
-        let coordinate = Coordinate(
-            latitude: location.coordinate.latitude,
-            longitude: location.coordinate.longitude)
-        addCoordinate(coordinate)
+        rxLocation.accept(location.coordinate)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error){
