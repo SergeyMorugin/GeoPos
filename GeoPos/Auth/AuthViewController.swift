@@ -7,19 +7,51 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
-class AuthViewController: UIViewController {
+
+protocol SecureViewController {
+    func activateSecureMethod()
+    func inactivateSecureMethod()
+}
+
+class AuthViewController: UIViewController, SecureViewController {
+
+    
     var storeService: DBService?
     var onLogin: (() -> Void)?
     
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var securityView: UIView!
+    @IBOutlet weak var loginBtn: UIButton!
+    @IBOutlet weak var signUpBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        loginTextField.autocorrectionType = .no
+        configBindings()
         // Do any additional setup after loading the view.
     }
+    
+    func configBindings() {
+        Observable
+        .combineLatest(
+            loginTextField.rx.text,
+            passwordTextField.rx.text
+        )
+        .map { login, password in
+            return !(login ?? "").isEmpty && ((password ?? "").count > 5)
+        }
+        .bind { [weak loginBtn, signUpBtn] inputFilled in
+            loginBtn?.isEnabled = inputFilled
+            signUpBtn?.isEnabled = inputFilled
+        }
+        
+    }
+    
+    
     
     @IBAction func onSignupClick(_ sender: Any) {
         guard
@@ -58,4 +90,11 @@ class AuthViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
 
+    func activateSecureMethod() {
+        securityView.isHidden = false
+    }
+    
+    func inactivateSecureMethod() {
+        securityView.isHidden = true
+    }
 }
