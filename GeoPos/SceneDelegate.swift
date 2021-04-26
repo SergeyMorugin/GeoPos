@@ -46,6 +46,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         {
             rootViewController.inactivateSecureMethod()
         }
+        ReturnNotification().removeNotificatioRequest()
+        
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
@@ -58,6 +60,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         {
             rootViewController.activateSecureMethod()
         }
+        ReturnNotification().sendNotificatioRequest()
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
