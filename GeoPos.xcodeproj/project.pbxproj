@@ -30,6 +30,8 @@
 		3438DDB626208FB8007D1606 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DDB526208FB8007D1606 /* Storyboard.swift */; };
 		3438DDB826209208007D1606 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438DDB726209208007D1606 /* AuthCoordinator.swift */; };
 		344CCA4F263186F30016FD8D /* ReturnNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344CCA4E263186F30016FD8D /* ReturnNotification.swift */; };
+		34C74639263991D70097BD92 /* CustomMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C74638263991D70097BD92 /* CustomMarker.swift */; };
+		34C7463B2639A2770097BD92 /* AvatarStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C7463A2639A2770097BD92 /* AvatarStore.swift */; };
 		7587DAD1A104781423BB83D6 /* Pods_GeoPos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694DFC1F3EDB51806E2D5043 /* Pods_GeoPos.framework */; };
 		E11959D5F503BCB6A9C87EE1 /* Pods_GeoPosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F1CD600CA0DD057F2FE71F0 /* Pods_GeoPosTests.framework */; };
 /* End PBXBuildFile section */
@@ -81,6 +83,8 @@
 		3438DDB526208FB8007D1606 /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		3438DDB726209208007D1606 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		344CCA4E263186F30016FD8D /* ReturnNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnNotification.swift; sourceTree = "<group>"; };
+		34C74638263991D70097BD92 /* CustomMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMarker.swift; sourceTree = "<group>"; };
+		34C7463A2639A2770097BD92 /* AvatarStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarStore.swift; sourceTree = "<group>"; };
 		44210089606CF484F08C582A /* Pods_GeoPos_GeoPosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoPos_GeoPosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57651F49620BCC3F5F94B692 /* Pods-GeoPosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoPosTests.release.xcconfig"; path = "Target Support Files/Pods-GeoPosTests/Pods-GeoPosTests.release.xcconfig"; sourceTree = "<group>"; };
 		694DFC1F3EDB51806E2D5043 /* Pods_GeoPos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoPos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -206,6 +210,8 @@
 			children = (
 				3438DD97261B5F9E007D1606 /* DBService.swift */,
 				3438DD952616274E007D1606 /* Secrets.swift */,
+				34C74638263991D70097BD92 /* CustomMarker.swift */,
+				34C7463A2639A2770097BD92 /* AvatarStore.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -533,6 +539,8 @@
 				3438DD6626161DFB007D1606 /* AppDelegate.swift in Sources */,
 				3438DD6826161DFB007D1606 /* SceneDelegate.swift in Sources */,
 				3438DDAB26203442007D1606 /* User.swift in Sources */,
+				34C7463B2639A2770097BD92 /* AvatarStore.swift in Sources */,
+				34C74639263991D70097BD92 /* CustomMarker.swift in Sources */,
 				3438DDA0261CBA3A007D1606 /* MapPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

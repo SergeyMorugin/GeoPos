@@ -60,6 +60,7 @@ class MapPresenter: MapPresentationLogic {
             longitude: response.coordinate.longitude)
         routePath?.add(coordinate)
         var viewModel = MapModel.ViewModel()
+        viewModel.coordinate = response.coordinate
         viewModel.startBtnEnable = false
         viewModel.stopBtnEnable = true
         viewModel.routePath = routePath

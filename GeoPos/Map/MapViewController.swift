@@ -22,6 +22,10 @@ class MapViewController: UIViewController, MapDisplayLogic {
     var interactor: MapBusinessLogic?
     var route: GMSPolyline?
     var onLogout: (() -> Void)?
+    var marker: GMSMarker?
+    
+    
+    
     
     // MARK: Object lifecycle
     
@@ -58,6 +62,35 @@ class MapViewController: UIViewController, MapDisplayLogic {
         onLogout?()
     }
     
+    func addMarker(coordinate: CLLocationCoordinate2D) {
+        if let marker = self.marker {
+            
+        } else {
+            self.marker = GMSMarker(position: coordinate)
+            self.marker?.icon = CustomMarker().markerWithAvatar(AvatarStore.load())
+            self.marker?.map = mapView
+            
+        }
+        self.marker?.position = coordinate
+        
+    }
+    
+    @IBAction func makeAvatar(_ sender: Any) {
+        let imagePickerController = UIImagePickerController()
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            imagePickerController.sourceType = .camera
+        } else {
+            imagePickerController.sourceType = .savedPhotosAlbum
+        }
+        imagePickerController.allowsEditing = true
+        imagePickerController.delegate = self
+        
+        present(imagePickerController, animated: true)
+    }
+    
+    
+
+    
     func updateScene(viewModel: MapModel.ViewModel) {
         self.startBtn.isEnabled = viewModel.startBtnEnable
         self.stopBtn.isEnabled = viewModel.stopBtnEnable
@@ -66,6 +99,48 @@ class MapViewController: UIViewController, MapDisplayLogic {
         }
         if let camera = viewModel.cameraUpdate {
             self.mapView.animate(with: camera)
+            
+           
+        }
+        if let coordinate = viewModel.coordinate {
+         addMarker(coordinate: CLLocationCoordinate2D(
+             latitude: coordinate.latitude,
+             longitude: coordinate.longitude))
+        }
+    }
+}
+
+extension MapViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        // Если нажали на кнопку Отмена, то UIImagePickerController надо закрыть
+        picker.dismiss(animated: true)
+    }
+    
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
+        // Мы получили медиа от контроллера
+        // Изображение надо достать из словаря info
+        let image = extractImage(from: info)
+        print(image!)
+        // Закрываем UIImagePickerController
+        AvatarStore.save(image: image!)
+        self.marker?.icon = CustomMarker().markerWithAvatar(image)
+        picker.dismiss(animated: true)
+    }
+    
+    // Метод, извлекающий изображение
+    
+    private func extractImage(from info: [UIImagePickerController.InfoKey: Any]) -> UIImage? {
+        // Пытаемся извлечь отредактированное изображение
+        if let image = info[.editedImage] as? UIImage {
+            return image
+            // Пытаемся извлечь оригинальное
+        } else if let image = info[.originalImage] as? UIImage {
+            return image
+        } else {
+            // Если изображение не получено, возвращаем nil
+            return nil
         }
     }
 }
