@@ -45,6 +45,6 @@ enum MapModel {
         var stopBtnEnable: Bool = false
         var routePath: GMSMutablePath?
         var cameraUpdate: GMSCameraUpdate?
-        
+        var coordinate: Coordinate?
     }
 }

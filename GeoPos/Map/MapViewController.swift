@@ -15,6 +15,8 @@ import GoogleMaps
 
 
 protocol MapDisplayLogic: class {
+    var mapView: GMSMapView! { get set }
+    var marker: GMSMarker? { get set }
     func updateScene(viewModel: MapModel.ViewModel)
 }
 
@@ -22,6 +24,8 @@ class MapViewController: UIViewController, MapDisplayLogic {
     var interactor: MapBusinessLogic?
     var route: GMSPolyline?
     var onLogout: (() -> Void)?
+    var onMakeAvatar: (() -> Void)?
+    var marker: GMSMarker?
     
     // MARK: Object lifecycle
     
@@ -54,10 +58,13 @@ class MapViewController: UIViewController, MapDisplayLogic {
     }
     
     @IBAction func signoutBtnClick(_ sender: Any) {
-        UserDefaults.standard.set(false, forKey: "isLogin")
         onLogout?()
     }
     
+    @IBAction func makeAvatar(_ sender: Any) {
+        onMakeAvatar?()
+    }
+
     func updateScene(viewModel: MapModel.ViewModel) {
         self.startBtn.isEnabled = viewModel.startBtnEnable
         self.stopBtn.isEnabled = viewModel.stopBtnEnable
@@ -67,5 +74,14 @@ class MapViewController: UIViewController, MapDisplayLogic {
         if let camera = viewModel.cameraUpdate {
             self.mapView.animate(with: camera)
         }
+        if let coordinate = viewModel.coordinate {
+            self.marker?.position = CLLocationCoordinate2D(
+              latitude: coordinate.latitude,
+              longitude: coordinate.longitude)
+        }
     }
 }
+
+
+
+

@@ -19,6 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         GMSServices.provideAPIKey(Secrets.shared.googleMapsApiKey)
         //print(Realm.Configuration.defaultConfiguration.fileURL)
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, _ in
+          print("Permission granted: \(granted)")
+        }
         return true
     }
 

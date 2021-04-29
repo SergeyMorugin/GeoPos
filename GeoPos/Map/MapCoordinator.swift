@@ -12,6 +12,7 @@ import CoreLocation
 final class MapCoordinator: BaseCoordinator {
     
     var rootController: UIViewController?
+    weak var interactor: MapInteractor?
     var onFinishFlow: (() -> Void)?
     
     override func start() {
@@ -23,7 +24,12 @@ final class MapCoordinator: BaseCoordinator {
             .instantiateViewController(MapViewController.self)
         
         controller.onLogout = { [weak self] in
+            UserDefaults.standard.set(false, forKey: "isLogin")
             self?.onFinishFlow?()
+        }
+        
+        controller.onMakeAvatar = { [weak self] in
+            self?.toPhoto()
         }
         
         let viewController = controller
@@ -34,9 +40,21 @@ final class MapCoordinator: BaseCoordinator {
         interactor.dbService = RealmService.shared
         interactor.locationManager = CLLocationManager()
         presenter.viewController = viewController
-        
+        self.interactor = interactor
         setAsRoot(controller)
         self.rootController = controller
     }
+    
+    private func toPhoto() {
+        let coordinator = PhotoCoordinator()
+        
+        coordinator.onFinishFlow = { [weak self, weak coordinator] image in
+            self?.removeDependency(coordinator)
+            self?.interactor?.updateAvatatar(image: image)
+        }
+        addDependency(coordinator)
+        coordinator.start()
+    }
+
     
 }

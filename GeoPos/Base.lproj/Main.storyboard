@@ -96,6 +96,12 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I8A-cr-OBi" customClass="GMSMapView">
                                 <rect key="frame" x="0.0" y="44" width="414" height="729"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="usu-Ci-pFM">
+                                        <rect key="frame" x="62" y="404" width="240" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A3x-do-ym8">
@@ -129,16 +135,25 @@
                                             <action selector="signoutBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nrD-1t-KwL"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhk-Cg-Neu">
+                                        <rect key="frame" x="292" y="25" width="44" height="30"/>
+                                        <state key="normal" title="Avatar"/>
+                                        <connections>
+                                            <action selector="makeAvatar:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fGo-kJ-4Er"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstItem="m4d-RM-UoM" firstAttribute="leading" secondItem="4aA-Wn-bhw" secondAttribute="trailing" constant="32" id="1lj-FK-whQ"/>
                                     <constraint firstAttribute="height" constant="81" id="AKJ-jN-7rC"/>
+                                    <constraint firstItem="vhk-Cg-Neu" firstAttribute="leading" secondItem="AEf-cS-r9O" secondAttribute="leading" constant="-52" id="E0p-O9-ScH"/>
                                     <constraint firstItem="5vJ-gO-azi" firstAttribute="leading" secondItem="A3x-do-ym8" secondAttribute="leading" constant="36" id="E73-mZ-yeC"/>
                                     <constraint firstItem="m4d-RM-UoM" firstAttribute="top" secondItem="A3x-do-ym8" secondAttribute="top" constant="25" id="Fry-D0-Igj"/>
                                     <constraint firstItem="4aA-Wn-bhw" firstAttribute="leading" secondItem="5vJ-gO-azi" secondAttribute="trailing" constant="50" id="Xdc-1a-7lE"/>
                                     <constraint firstItem="4aA-Wn-bhw" firstAttribute="top" secondItem="A3x-do-ym8" secondAttribute="top" constant="25" id="Y3r-28-ciq"/>
                                     <constraint firstItem="AEf-cS-r9O" firstAttribute="top" secondItem="A3x-do-ym8" secondAttribute="top" constant="25" id="aAA-Ty-YUg"/>
+                                    <constraint firstItem="vhk-Cg-Neu" firstAttribute="top" secondItem="A3x-do-ym8" secondAttribute="top" constant="25" id="hVd-s6-Dab"/>
                                     <constraint firstAttribute="trailing" secondItem="AEf-cS-r9O" secondAttribute="trailing" constant="3" id="jXj-On-7D3"/>
                                     <constraint firstItem="5vJ-gO-azi" firstAttribute="top" secondItem="A3x-do-ym8" secondAttribute="top" constant="25" id="q3e-0E-fwf"/>
                                 </constraints>
@@ -168,4 +183,7 @@
             <point key="canvasLocation" x="-52.173913043478265" y="34.821428571428569"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+    </resources>
 </document>
