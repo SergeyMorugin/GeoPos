@@ -20,6 +20,7 @@ protocol MapBusinessLogic {
     func startTracking(request: MapModel.StartTracking.Request)
     func stopTracking(request: MapModel.StopTracking.Request)
     func loadTrack(request: MapModel.LoadTrack.Request)
+    func updateAvatatar(image: UIImage?)
 }
 
 protocol MapDataStore {
@@ -30,6 +31,13 @@ protocol MapDataStore {
 }
 
 class MapInteractor: NSObject, MapBusinessLogic, MapDataStore {
+    func updateAvatatar(image: UIImage?) {
+        if let image = image {
+          AvatarStore.save(image: image)
+        }
+        presenter?.updateAvatar(image: image)
+    }
+    
     var presenter: MapPresentationLogic?
     
     var locationManager: CLLocationManager?
@@ -91,6 +99,9 @@ class MapInteractor: NSObject, MapBusinessLogic, MapDataStore {
         locationManager?.stopMonitoringSignificantLocationChanges()
         locationManager?.requestAlwaysAuthorization()
     }
+    
+    
+
 }
 
 extension MapInteractor: CLLocationManagerDelegate {
@@ -106,3 +117,4 @@ extension MapInteractor: CLLocationManagerDelegate {
         print(error)
     }
 }
+

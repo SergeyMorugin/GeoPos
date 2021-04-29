@@ -19,12 +19,18 @@ protocol MapPresentationLogic {
     func presentStartTracking(response: MapModel.StartTracking.Response)
     func presentStopTracking(response: MapModel.StopTracking.Response)
     func presentCoordinate(response: MapModel.AddCoordinate.Response)
+    func updateAvatar(image: UIImage?)
 }
 
 class MapPresenter: MapPresentationLogic {
     let mapCameraZoom: Float = 15
     weak var viewController: MapDisplayLogic?
     var routePath: GMSMutablePath?
+    
+    
+    func updateAvatar(image: UIImage?){
+        viewController?.marker?.icon = CustomMarker().markerWithAvatar(image)
+    }
     
     // MARK: Do something
     func presentStartTracking(response: MapModel.StartTracking.Response) {
@@ -33,6 +39,11 @@ class MapPresenter: MapPresentationLogic {
         viewModel.stopBtnEnable = true
         routePath = GMSMutablePath()
         viewModel.routePath = routePath
+        
+        viewController?.marker = GMSMarker()
+        viewController?.marker?.icon = CustomMarker().markerWithAvatar(AvatarStore.load())
+        viewController?.marker?.map = viewController?.mapView
+    
         viewController?.updateScene(viewModel: viewModel)
     }
     
@@ -41,6 +52,8 @@ class MapPresenter: MapPresentationLogic {
         viewModel.startBtnEnable = true
         viewModel.stopBtnEnable = false
         viewModel.routePath = routePath
+        viewController?.marker?.map = nil
+        viewController?.marker = nil
         viewController?.updateScene(viewModel: viewModel)
     }
     
@@ -50,6 +63,8 @@ class MapPresenter: MapPresentationLogic {
         viewModel.stopBtnEnable = false
         let route = coordinatesToGMSMutablePath(response.track)
         viewModel.routePath = route
+        viewController?.marker?.map = nil
+        viewController?.marker = nil
         viewModel.cameraUpdate = GMSCameraUpdate.fit(GMSCoordinateBounds.init(path: route))
         viewController?.updateScene(viewModel: viewModel)
     }
